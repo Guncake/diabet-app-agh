@@ -1,25 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import React,{Component} from 'react';
 
-function App() {
+class App extends Component {
+  state = {
+    gender:""
+  };
+
+  handleChange=(e)=>{
+      this.setState({
+        gender: e.target.value
+      })
+  }
+
+render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Bartosz Koziel to gey
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+       <form>
+          <input type="radio" value="gej" id="male"
+            onChange={this.handleChange} name="gender" />            
+            <label for="male">Male</label>
+
+          <input type="radio" value="cipa" id="female"
+            onChange={this.handleChange} name="gender"/>            
+            <label for="female">Female</label>
+       </form>
+
+       <p>You gender is: {this.state.gender}</p>      
+       </div>
   );
 }
-
+}
 export default App;
