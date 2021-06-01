@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React,{Component} from 'react';
 
@@ -17,17 +16,17 @@ render() {
   return (
     <div>
        <form>
-          <input type="radio" value="gej" id="male"
+          <input type="radio" value="1" id="male"
             onChange={this.handleChange} name="gender" />            
             <label for="male">Male</label>
 
-          <input type="radio" value="cipa" id="female"
+          <input type="radio" value="2" id="female"
             onChange={this.handleChange} name="gender"/>            
             <label for="female">Female</label>
        </form>
 
-       <p>You gender is: {this.state.gender}</p>      
-       </div>
+       <p>You gender is: {parseInt(this.state.gender) + 2}</p>      
+    </div>
   );
 }
 }
