@@ -12,9 +12,10 @@ class App extends Component {
       })
   }
 
+
 render() {
   return (
-    <div>
+    <div className = "App-header">
        <form>
           <input type="radio" value="1" id="male"
             onChange={this.handleChange} name="gender" />            
