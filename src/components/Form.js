@@ -35,7 +35,9 @@ class Form extends React.Component {
         if(!this.state.rendered){
             this.addQuestion(["czy masz cukrzyce?",
                             "czy umierasz?",
-                            "monke?"])
+                            "czy palisz faje?",
+                            "czy uprawiasz sport?",
+                            "czy gruby js?"])
             this.state.rendered = true
         }
 
