@@ -2,21 +2,24 @@ import React from 'react'
 import FormComp from './FormComp'
 import AnswersComp from './AnswersComp'
 
+import QUESTIONS from './consts/questions'
+
 class Form extends React.Component {
     state = {
         questions: [
         ],
-        rendered: false
+        rendered: false,
+        isFormFilled: true
     }
 
     addQuestion(q = []){
         const newQuestions = this.state.questions
         q.forEach(element => {
             newQuestions.push({
-                id: Math.random(10000,99999).toString(),
+                id: Math.random(100000,999999).toString(),
                 nr: (this.state.questions.length + 1).toString(),
                 q: element,
-                ans: "-1"
+                ans: ''
             })
         });
 
@@ -26,18 +29,24 @@ class Form extends React.Component {
         const index = this.state.questions.findIndex(x => x.id === id)
         const newQuestions = this.state.questions
         newQuestions[index].ans = ans
-
         this.setState({ questions: newQuestions})
     }
 
+    buttonPressed() {
+        const index = this.state.questions.findIndex(x => x.ans === '')
+        if (index === -1){
+            console.log("wysłano")
+            this.setState({ isFormFilled: true})
+        }
+        else{
+            console.log("NIE")
+            this.setState({ isFormFilled: false})
+        }
+    }
 
     render() {
         if(!this.state.rendered){
-            this.addQuestion(["czy masz cukrzyce?",
-                            "czy umierasz?",
-                            "czy palisz faje?",
-                            "czy uprawiasz sport?",
-                            "czy gruby js?"])
+            this.addQuestion(QUESTIONS)
             this.state.rendered = true
         }
 
@@ -47,16 +56,22 @@ class Form extends React.Component {
         })
 
         const ans_elements = this.state.questions.map(e => {
-            return <ul><AnswersComp element = {e} /></ul>
+            return <ul className="smallText"><AnswersComp element = {e} /></ul>
         })
 
         return(
-            <div className="App-header">
+            <div className="App-header" key="elo">
                 {form_elements}
                 <p>
-                    <br /><br />
+                    <br />
                 </p>
                 {ans_elements}
+                <p><br /></p>
+                <button className="button" onClick = {this.buttonPressed.bind(this)}>Wyniki</button>
+                <p className="redtext">
+                    {this.state.isFormFilled ? '' : 'Wypełnij wszystkie pola formularza'}
+                </p>
+                <p><br /></p>
             </div>
         )
     }

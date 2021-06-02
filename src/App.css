@@ -24,6 +24,11 @@
   color: rgb(0, 0, 0);
 }
 
+.smallText {
+  font-size: calc(1px + 2vmin);
+  color: rgb(0, 0, 0);
+}
+
 .bkg {
   background-color: #b9d2ff;
   display: flex;
@@ -49,4 +54,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 24px 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.redtext{
+  color: rgb(240, 83, 83);
 }
