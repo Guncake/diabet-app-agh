@@ -67,6 +67,10 @@
   font-size: 16px;
 }
 
+.button:hover {
+  cursor: pointer;
+}
+
 .redtext{
   color: rgb(240, 83, 83);
 }
