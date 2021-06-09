@@ -13,19 +13,30 @@ class App extends React.Component{
 
   toResults = () => {
     this.setState({toResults: true})
+    console.log("udałosie")
   }
 
   render(){
-    return (
-      <div className="bkg">
-        <h1 className = "center">Cukrzycowa ankieta</h1>
-        <p className = "center">
-          Odpowiedz na pytania i zobacz se czy cukrzyce masz elo
-          <br />
-        </p>
-        <Form gotoResults={this.toResults.bind(this)}/>
-      </div>
-    )
+    if(this.state.toResults){
+      return(
+        <div>
+          <Results />
+        </div>
+      )
+    }
+    else{
+      return (
+        <div className="bkg">
+          <h1 className = "center">Cukrzycowa ankieta</h1>
+          <p className = "center">
+            Odpowiedz na pytania i zobacz se czy cukrzyce masz elo
+            <br />
+          </p>
+          <Form gotoResults={this.toResults.bind(this)}/>
+        </div>
+      )
+    }
+    
   }
 }
 export default App;

@@ -37,10 +37,11 @@ class Form extends React.Component {
         if (index === -1){
             console.log("wysłano")
             this.setState({ isFormFilled: true})
+            this.props.gotoResults()
         }
         else{
             console.log("NIE")
-            this.setState({ isFormFilled: false})
+            this.setState({ isFormFilled: false})           
         }
     }
 
