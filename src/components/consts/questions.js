@@ -50,7 +50,7 @@ const QUESTIONS = [
         weights:[1.78,0.92,0.97,0],
         possible_ans:['Niedowaga (BMI < 18.5)', 'Nadwaga (BMI > 25 i BMI < 30)', 'Otyłość (BMI > 30)', 'BMI prawidłowe (18.5 - 25)'],
         third_input: true,
-        fourth_input:true
+        fourth_input: true
     },
 ]
 

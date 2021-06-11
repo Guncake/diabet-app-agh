@@ -8,19 +8,20 @@ import Results from './components/Results'
 class App extends React.Component{
   
   state = {
-    toResults: false
+    toResults: false,
+    received_answers: []
   }
 
-  toResults = () => {
-    this.setState({toResults: true})
-    console.log("udałosie")
+  toResults = (questions=[]) => {
+    this.setState({toResults: true,
+                  received_answers: questions})
   }
 
   render(){
     if(this.state.toResults){
       return(
         <div>
-          <Results />
+          <Results answers = {this.state.received_answers}/>
         </div>
       )
     }

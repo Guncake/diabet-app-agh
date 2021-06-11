@@ -6,8 +6,7 @@ import QUESTIONS from './consts/questions'
 
 class Form extends React.Component {
     state = {
-        questions: [
-        ],
+        questions: [],
         rendered: false,
         isFormFilled: true
     }
@@ -30,6 +29,7 @@ class Form extends React.Component {
         const newQuestions = this.state.questions
         newQuestions[index].ans = ans
         this.setState({ questions: newQuestions})
+        console.log(`${id} ++ ${ans}`)
     }
 
     buttonPressed() {
@@ -37,7 +37,7 @@ class Form extends React.Component {
         if (index === -1){
             console.log("wysłano")
             this.setState({ isFormFilled: true})
-            this.props.gotoResults()
+            this.props.gotoResults(this.state.questions)
         }
         else{
             console.log("NIE")
@@ -56,9 +56,9 @@ class Form extends React.Component {
             return <div><FormComp element = {e} formClicked={this.changeAnswer.bind(this)} /><br></br></div>
         })
 
-        const ans_elements = this.state.questions.map(e => {
-            return <ul className="smallText"><AnswersComp element = {e} /></ul>
-        })
+        // const ans_elements = this.state.questions.map(e => {
+        //     return <ul className="smallText"><AnswersComp element = {e} /></ul>
+        // })
 
         return(
             <div className="App-header" key="elo">
@@ -66,8 +66,7 @@ class Form extends React.Component {
                 <p>
                     <br />
                 </p>
-                {ans_elements}
-                <p><br /></p>
+                {/* {ans_elements} */}
                 <button className="button" onClick = {this.buttonPressed.bind(this)}>Wyniki</button>
                 <p className="redtext">
                     {this.state.isFormFilled ? '' : 'Wypełnij wszystkie pola formularza'}
