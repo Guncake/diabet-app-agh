@@ -74,3 +74,10 @@
 .redtext{
   color: rgb(240, 83, 83);
 }
+
+.left {
+
+  justify-content: left;
+  align-items: left;
+  flex-direction: column;
+}

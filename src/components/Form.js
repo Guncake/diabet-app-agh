@@ -53,7 +53,7 @@ class Form extends React.Component {
 
 
         const form_elements = this.state.questions.map(e => {
-            return <FormComp element = {e} formClicked={this.changeAnswer.bind(this)} />
+            return <div><FormComp element = {e} formClicked={this.changeAnswer.bind(this)} /><br></br></div>
         })
 
         const ans_elements = this.state.questions.map(e => {
