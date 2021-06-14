@@ -2,6 +2,10 @@ import './App.css';
 import React,{Component} from 'react';
 import Form from './components/Form.js'
 import Results from './components/Results'
+import './fonts/Montserrat-Light.ttf';
+import './fonts/Montserrat-SemiBold.ttf'
+import './fonts/Montserrat-Black.ttf'
+
 
 
 
@@ -30,7 +34,7 @@ class App extends React.Component{
         <div className="bkg">
           <h1 className = "center">Cukrzycowa ankieta</h1>
           <p className = "center">
-            Odpowiedz na pytania i zobacz se czy cukrzyce masz elo
+            Udziel odpowiedzi na pytania aby dowiedzieć się jakie masz ryzyko śmierci z powodu cukrzycy w ciągu najbliższych 5 lat
             <br />
           </p>
           <Form gotoResults={this.toResults.bind(this)}/>

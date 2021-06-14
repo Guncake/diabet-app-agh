@@ -22,7 +22,7 @@ class Results extends React.Component {
         this.calculatePoints()
         return (
             <div className="App-header" key="results">
-                <div className="center">
+                <div className="results">
                     <p>
                         {`${(this.state.percent * 100).toPrecision(4)}%`}
                     </p>
