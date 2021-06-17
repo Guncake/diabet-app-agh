@@ -1,5 +1,32 @@
 const QUESTIONS = [
     {
+        text: "Do jakiej grupy wiekowej sie zaliczasz?",
+        weights:[0,0,0,0],
+        possible_ans:['<20 lat', '21-35 lat', '36-50 lat', '>50 lat'],
+        third_input: true,
+        fourth_input: true
+    },
+    {
+        text: "Jaki jest charakter twojej pracy?",
+        weights:[0,0,0],
+        possible_ans:['Praca fizyczna', 'Praca umysłowa', 'Nie pracuję'],
+        third_input: true,
+
+    },
+    {
+        text: "W jakim trybie pracujesz?",
+        weights:[0,0,0],
+        possible_ans:['Praca zdalna', 'Praca stacjonarna', 'Nie dotyczy'],
+        third_input: true,
+
+    },
+    {
+        text: "Miejsce zamieszkania:",
+        weights:[0,0,0],
+        possible_ans:['Miasto', 'Wieś'],
+
+    },
+    {
         text: "Jak bardzo rozwiniętą masz cukrzycę?",
         weights:[1.3,1.73],
         possible_ans:['Jednorazowy incydent', 'Stała cukrzyca']

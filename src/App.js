@@ -2,9 +2,9 @@ import './App.css';
 import React,{Component} from 'react';
 import Form from './components/Form.js'
 import Results from './components/Results'
-import './fonts/Montserrat-Light.ttf';
-import './fonts/Montserrat-SemiBold.ttf'
-import './fonts/Montserrat-Black.ttf'
+// import './fonts/Montserrat-Light.ttf';
+// import './fonts/Montserrat-SemiBold.ttf'
+// import './fonts/Montserrat-Black.ttf'
 
 
 
