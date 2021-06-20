@@ -58,31 +58,20 @@
   white-space: pre-line;
 }
 
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .button {
   background-color: #3aafa9; 
-  border-width: 8px;
+  border-width: 0.8vh;
   border-color: #feffff;
   border-style: solid;
   color: #feffff;
-  padding: 16px 30px;
+  padding: 1.6vh 3vh;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
   width: 25%;
   margin-left: 37.5%;
   font-family: Montserrat-SemiBold;
-  font-size: 32px;
+  font-size: 5vh;
   transition: background-color, border-radius, border-width;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -93,8 +82,8 @@
 .button:hover {
   cursor: pointer;
   background-color: #2b7a78;
-  border-width: 16px; 
-  border-radius: 50px;
+  border-width: 1.6vh; 
+  border-radius: 5vh;
   /* animation: colorChange 3s infinite */
   
 }
@@ -128,16 +117,16 @@
   justify-content: left;
   align-items: left;
   flex-direction: column;
-  margin-left: 150px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-left: 15vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 .checkmark {
   top: 0;
   left: 0;
-  height: 20px;
-  width: 20px;
+  height: 2vh;
+  width: 2vh;
   background-color: rgb(14, 12, 12);
   
 }
@@ -169,3 +158,15 @@
   font-size:50px;
 }
 
+.results-header {
+  background-color: #3aafa9;
+  min-height: 100 vh;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  font-size: calc(8px + 2vmin);
+  font-family: "Montserrat-light";
+  padding: 5px;
+  color: #feffff;
+}

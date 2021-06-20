@@ -22,7 +22,7 @@ const QUESTIONS = [
     },
     {
         text: "Miejsce zamieszkania:",
-        weights:[0,0,0],
+        weights:[0,0],
         possible_ans:['Miasto', 'Wieś'],
 
     },
