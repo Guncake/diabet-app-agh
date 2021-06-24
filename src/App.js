@@ -12,17 +12,17 @@ import Results from './components/Results'
 class App extends React.Component{
   
   state = {
-    toResults: false,
+    page: 0,
     received_answers: []
   }
 
   toResults = (questions=[]) => {
-    this.setState({toResults: true,
+    this.setState({page: 1,
                   received_answers: questions})
   }
 
   render(){
-    if(this.state.toResults){
+    if(this.state.page === 1){
       return(
         <div>
           <Results answers = {this.state.received_answers}/>
@@ -34,7 +34,7 @@ class App extends React.Component{
         <div className="bkg">
           <h1 className = "center">Cukrzycowa ankieta</h1>
           <p className = "center">
-            Udziel odpowiedzi na pytania aby dowiedzieć się jakie masz ryzyko śmierci z powodu cukrzycy w ciągu najbliższych 5 lat
+            Udziel odpowiedzi na pytania aby dowiedzieć się jakie masz szacowane ryzyko wystąpienia cukrzycy
             <br />
           </p>
           <Form gotoResults={this.toResults.bind(this)}/>

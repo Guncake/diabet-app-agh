@@ -21,7 +21,6 @@ class Form extends React.Component {
                 ans: ''
             })
         });
-
     }
 
     changeAnswer(id, ans){
