@@ -45,10 +45,10 @@ class Results extends React.Component{
         this.calculatePoints()
         if(!this.state.rendered){
             let postobject = this.createPOSTobject()
-            axios.post(`http://diabet-app-agh-api.herokuapp.com/answers`, querystring.stringify(postobject), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+            axios.post(`https://diabet-app-agh-api.herokuapp.com/answers`, querystring.stringify(postobject), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
             .then((response) => {console.log("udałosie")})
             .catch((err) => {console.log(err)})
-            axios.get(`http://diabet-app-agh-api.herokuapp.com/answers?ctrlq2=${postobject.pytanie2}&ctrlq3=${postobject.pytanie3}`, { headers: {'Content-Type': 'application/x-www-form-urlencoded' }})
+            axios.get(`https://diabet-app-agh-api.herokuapp.com/answers?ctrlq2=${postobject.pytanie2}&ctrlq3=${postobject.pytanie3}`, { headers: {'Content-Type': 'application/x-www-form-urlencoded' }})
             .then((response) => {console.log(response)})
             .catch((err) => {console.log(err)})
             
