@@ -1,12 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import querystring from 'querystring';
+import Dankmemes from './datavis';
+import { throwStatement } from '@babel/types';
 
 class Results extends React.Component{
     state ={
         percent: 0,
         dbURI: "mongodb+srv://nutella:nutella123@diabet-app-agh.ka7zl.mongodb.net/diabet-db?retryWrites=true&w=majority",
         rendered: false,
+        ctrlqs:[],
         stats: {}
     }
 
@@ -43,25 +46,42 @@ class Results extends React.Component{
 
     render(){
         this.calculatePoints()
+        console.log("heh1")
         if(!this.state.rendered){
             let postobject = this.createPOSTobject()
             axios.post(`https://diabet-app-agh-api.herokuapp.com/answers`, querystring.stringify(postobject), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
             .then((response) => {console.log("udałosie")})
             .catch((err) => {console.log(err)})
             axios.get(`https://diabet-app-agh-api.herokuapp.com/answers?ctrlq2=${postobject.pytanie2}&ctrlq3=${postobject.pytanie3}`, { headers: {'Content-Type': 'application/x-www-form-urlencoded' }})
-            .then((response) => {console.log(response)})
+            .then((response) => {
+                this.state.stats = response.data.stats; 
+                this.state.ctrlqs = [postobject.pytanie2, postobject.pytanie3]; 
+                this.setState({rendered: true})
+            })
             .catch((err) => {console.log(err)})
             
-            this.state.rendered = true
+            // this.state.rendered = true
+            console.log("heh")
         }
 
         return (
             <div className="results-header" key="results">
                 <div className="results">
                     <p>
+
+                    </p>
+                    <br />
+                    <br />
+                    <br />
+                    <p>
                         {`${(this.state.percent * 100).toPrecision(4)}% - szacowana szansa na wystąpienie u Ciebie cukrzycy`}
                     </p>
                 </div>
+                {this.state.rendered?<Dankmemes data={this.state.stats}/>:''}
+                <br />
+                <p>
+                    {`Średnie szacowane ryzyko cukrzycy u osób mieszkających ${this.state.ctrlqs[1]==='0'?'na wsi':'w mieście'}: ${(this.state.stats.ctrlq3)}`}
+                </p>
             </div>
         )
     }

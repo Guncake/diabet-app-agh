@@ -2,38 +2,26 @@ import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
 
-const Dankmemes = () => {
+const Dankmemes = (props) => {
   const [chartData, setChartData] = useState({});
   const [employeeSalary, setEmployeeSalary] = useState([]);
   const [employeeAge, setEmployeeAge] = useState([]);
+  console.log('props')
+  console.log(props)
 
   const chart = () => {
-    let empSal = [];
-    let empAge = [];
-    axios
-      .get("http://dummy.restapiexample.com/api/v1/employees")
-      .then(res => {
-        console.log(res);
-        for (const dataObj of res.data.data) {
-          empSal.push(parseInt(dataObj.employee_salary));
-          empAge.push(parseInt(dataObj.employee_age));
-        }
-        setChartData({
-          labels: empAge,
-          datasets: [
-            {
-              label: "level of thiccness",
-              data: empSal,
-              backgroundColor: ["rgba(75, 192, 192, 0.6)"],
-              borderWidth: 4
-            }
-          ]
-        });
-      })
-      .catch(err => {
-        console.log(err);
+
+    setChartData({
+        labels: ['<20', '21-35', '36-50', '>50'],
+        datasets: [
+          {
+            label: "szacowane procentowe ryzyko",
+            data: props.data.agedata,
+            backgroundColor: ["rgba(75, 192, 192, 0.6)"],
+            borderWidth: 4
+          }
+        ]
       });
-    console.log(empSal, empAge);
   };
 
   useEffect(() => {
@@ -41,13 +29,12 @@ const Dankmemes = () => {
   }, []);
   return (
     <div className="App">
-      <h1>Dankmemes</h1>
+      <h3>Średnie szacowane ryzyko cukrzycy dla danych grup wiekowych</h3>
       <div>
         <Bar
           data={chartData}
           options={{
             responsive: true,
-            title: { text: "THICCNESS SCALE", display: true },
             scales: {
               yAxes: [
                 {
