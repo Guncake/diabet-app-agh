@@ -5,21 +5,24 @@ import Results from './components/Results'
 // import './fonts/Montserrat-Light.ttf';
 // import './fonts/Montserrat-SemiBold.ttf'
 // import './fonts/Montserrat-Black.ttf'
-import Dankmemes from './components/datavis'
 
-
+import Navbar from './components/Navbar';
+import {BiInfoCircle} from 'react-icons/bi'
+import {useState} from 'react'
 
 
 class App extends React.Component{
   
   state = {
     page: 0,
-    received_answers: []
+    received_answers: [],
+    showNav: false,
   }
 
   toResults = (questions=[]) => {
     this.setState({page: 1,
-                  received_answers: questions})
+                  received_answers: questions,
+                  showNav:false})
   }
 
   render(){
@@ -32,15 +35,20 @@ class App extends React.Component{
     }
     else{
       return (
-        <div className="bkg">
-          <h1 className = "center">Cukrzycowa ankieta</h1>
-          <p className = "center">
-            Udziel odpowiedzi na pytania aby dowiedzieć się jakie masz szacowane ryzyko wystąpienia cukrzycy
-            <br />
-          </p>
-          <Form gotoResults={this.toResults.bind(this)}/>
-          <Dankmemes />
-        </div>
+
+
+          <div className="bkg">
+            <header><BiInfoCircle onClick={() => this.setState({showNav : !this.state.showNav})} /></header>
+            <h1 className = "center">Cukrzycowa ankieta</h1>
+            <p className = "center">
+              Udziel odpowiedzi na pytania aby dowiedzieć się jakie masz szacowane ryzyko wystąpienia cukrzycy
+              <br />
+            </p>
+            <Navbar show={this.state.showNav}/>
+            <Form gotoResults={this.toResults.bind(this)}/>
+
+          </div>
+
       )
     }
     
