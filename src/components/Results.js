@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import querystring from 'querystring';
 import Dankmemes from './datavis';
-import { throwStatement } from '@babel/types';
 
 class Results extends React.Component{
     state ={
@@ -62,16 +61,26 @@ class Results extends React.Component{
             
             // this.state.rendered = true
             console.log("heh")
-        }
 
+
+            }
+            
+            var odp2 = '0'
+            const log1 = this.state.ctrlqs[0]
+            console.log(`nasz lożek ${log1}`)
+            if(this.state.ctrlqs[0]==='0') {  
+                odp2 = 'pracujących fizycznie';}
+                else if(this.state.ctrlqs[0]==='1') {
+                    odp2 = 'pracujących umysłowo';}
+                    else if(this.state.ctrlqs[0]==='2'){
+                        odp2 = 'nie pracujących';}
+            
         return (
             <div className="results-header" key="results">
                 <div className="results">
                     <p>
 
                     </p>
-                    <br />
-                    <br />
                     <br />
                     <p>
                         {`${(this.state.percent * 100).toPrecision(4)}% - szacowana szansa na wystąpienie u Ciebie cukrzycy`}
@@ -80,7 +89,10 @@ class Results extends React.Component{
                 {this.state.rendered?<Dankmemes data={this.state.stats}/>:''}
                 <br />
                 <p>
-                    {`Średnie szacowane ryzyko cukrzycy u osób mieszkających ${this.state.ctrlqs[1]==='0'?'na wsi':'w mieście'}: ${(this.state.stats.ctrlq3)}`}
+                                
+                    {`Średnie szacowane ryzyko cukrzycy u osób mieszkających ${this.state.ctrlqs[1]==='0'?'w mieście':'na wsi'}: ${(this.state.stats.ctrlq3)}%`}
+                <br />
+                    {`Średnie szacowane ryzyko cukrzycy u osób ${odp2}: ${(this.state.stats.ctrlq2)}%`}
                 </p>
             </div>
         )

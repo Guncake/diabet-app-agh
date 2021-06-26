@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
-import axios from "axios";
 
 const Dankmemes = (props) => {
   const [chartData, setChartData] = useState({});
-  const [employeeSalary, setEmployeeSalary] = useState([]);
-  const [employeeAge, setEmployeeAge] = useState([]);
+  const [percent_value, setpercent_value] = useState([]);
+  const [result_value, setresult_value] = useState([]);
   console.log('props')
   console.log(props)
 
   const chart = () => {
 
     setChartData({
-        labels: ['<20', '21-35', '36-50', '>50'],
+        labels: ['<20 lat', '21-35 lat', '36-50 lat', '>50 lat'],
         datasets: [
           {
             label: "szacowane procentowe ryzyko",
