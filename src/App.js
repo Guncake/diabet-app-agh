@@ -40,7 +40,8 @@ class App extends React.Component{
               Udziel odpowiedzi na pytania aby dowiedzieć się jakie masz szacowane ryzyko wystąpienia cukrzycy
               <br />
             </p>
-            <Navbar show={this.state.showNav}/>
+            <Navbar show={this.state.showNav}/> 
+            
             <Form gotoResults={this.toResults.bind(this)}/>
 
           </div>
