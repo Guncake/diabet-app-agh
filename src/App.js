@@ -41,7 +41,6 @@ class App extends React.Component{
               <br />
             </p>
             <Navbar show={this.state.showNav}/> 
-            
             <Form gotoResults={this.toResults.bind(this)}/>
 
           </div>
