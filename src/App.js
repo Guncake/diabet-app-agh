@@ -5,6 +5,7 @@ import Results from './components/Results'
 // import './fonts/Montserrat-Light.ttf';
 // import './fonts/Montserrat-SemiBold.ttf'
 // import './fonts/Montserrat-Black.ttf'
+import Dankmemes from './components/datavis'
 
 
 
@@ -38,6 +39,7 @@ class App extends React.Component{
             <br />
           </p>
           <Form gotoResults={this.toResults.bind(this)}/>
+          <Dankmemes />
         </div>
       )
     }
